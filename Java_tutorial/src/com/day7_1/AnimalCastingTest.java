@@ -45,7 +45,7 @@ class Eagle extends Aniaml {
   }
 }
 
-public class AnimaTest {
+public class AnimalCastingTest {
 
   ArrayList<Aniaml> arr = new ArrayList<>();
 
