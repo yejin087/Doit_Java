@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TwoDemScore {
 
-  // 7ê°œì˜ ?ˆ«?, ?•™?ƒ 50ëª?
+  // 7°³ÀÇ ??????, ?????? 50??
   int[][] arr = new int[50][7];
   Scanner sc = new Scanner(System.in);
   int row = 0;

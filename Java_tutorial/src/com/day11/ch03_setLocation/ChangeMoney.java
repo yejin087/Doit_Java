@@ -1,6 +1,8 @@
 package com.day11.ch03_setLocation;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -10,59 +12,72 @@ import javax.swing.JTextField;
 
 public class ChangeMoney extends JFrame {
 
-	private int[] unit = { 50000, 10000, 1000, 500, 100, 50, 10, 1 };
-	private String[] text = { "¿À¸¸¿ø", " ¸¸¿ø", " Ãµ¿ø", "¿À¹é¿ø", "¹é¿ø", "¿À½Ê¿ø", "½Ê¿ø", "ÀÏ¿ø" };
-	private JTextField[] tf = new JTextField[8];
-	private JCheckBox[] cb = new JCheckBox[7];
+  private int[] unit = { 50000, 10000, 1000, 500, 100, 50, 10, 1 };
+  private String[] text = { "ì˜¤ë§Œì›", " ë§Œì›", " ì˜¤ì²œì›", "ì²œì›", "ì˜¤ë°±ì›", "ë°±ì›", "ì˜¤ì‹­ì›", "ì¼ì›" };
+  private JTextField[] tf = new JTextField[8];
+  private JCheckBox[] cb = new JCheckBox[7];
 
-	public ChangeMoney() {
-		setTitle("change money");
-		setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		getContentPane().setBackground(Color.lightGray);
+  public ChangeMoney() {
+    setTitle("change money");
+    setLayout(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    getContentPane().setBackground(Color.lightGray);
 
-		JLabel la = new JLabel("±İ¾×");
-		la.setSize(50, 20);
-		la.setLocation(20, 20);
-		add(la);
+    JLabel la = new JLabel("ê¸ˆì•¡");
+    la.setSize(50, 20);
+    la.setLocation(20, 20);
+    add(la);
 
-		JTextField won = new JTextField(30);
-		won.setSize(100, 20);
-		won.setLocation(80, 20);
-		add(won);
+    JTextField won = new JTextField(30);
+    won.setSize(100, 20);
+    won.setLocation(80, 20);
+    add(won);
 
-		JButton btn = new JButton("°è»ê");
-		btn.setSize(70, 20);
-		btn.setLocation(200, 20);
-		add(btn);
+    JButton btn = new JButton("ê³„ì‚°");
+    btn.setSize(70, 20);
+    btn.setLocation(200, 20);
+    add(btn);
 
-		for (int i = 0; i < text.length; i++) {
-			// text array
-			la = new JLabel(text[i]);
-			la.setSize(50, 20);
-			la.setLocation(20, 50 + 20 * i);
-			add(la);
-			// jtextfield
-			tf[i] = new JTextField();
-			tf[i].setSize(100, 20);
-			tf[i].setLocation(80, 50 + 20 * i);
-			add(tf[i]);
+    for (int i = 0; i < text.length; i++) {
+      // text array
+      la = new JLabel(text[i]);
+      la.setSize(50, 20);
+      la.setLocation(20, 50 + 20 * i);
+      add(la);
+      // jtextfield
+      tf[i] = new JTextField();
+      tf[i].setSize(100, 20);
+      tf[i].setLocation(80, 50 + 20 * i);
+      add(tf[i]);
 
-			// check box
-			if (i == text.length - 1)
-				break;
-			cb[i] = new JCheckBox();
-			cb[i].setSize(30, 20);
-			cb[i].setLocation(200, 50 + 20 * i);
-			add(cb[i]);
-		}
+      // check box
+      if (i == text.length - 1)
+        break;
+      cb[i] = new JCheckBox();
+      cb[i].setSize(30, 20);
+      cb[i].setLocation(200, 50 + 20 * i);
+      add(cb[i]);
+    }
 
-		setSize(300, 300);
-		setVisible(true);
-	}
+    setSize(300, 300);
+    setVisible(true);
 
-	public static void main(String[] args) {
-		new ChangeMoney();
-	}
+    btn.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        int money = Integer.parseInt(won.getText());
+        for (int i = 0; i < text.length - 1; i++) {
+          money = money / unit[i];
+          tf[i].setText(Integer.toString(money));
+          money = money % unit[i];
+
+        }
+      }
+    });
+  }
+
+  public static void main(String[] args) {
+    new ChangeMoney();
+  }
 
 }
