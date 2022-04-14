@@ -76,7 +76,7 @@ MemberDTO member = dao.findById(sid);
 				}
 			</script>
 
-			<br> <br>
+			<br> </br>
 
 			<button type="button" class="btn btn-primary" id="sendBtn">수정하기</button>
 			<button type="button" class="btn btn-secondary" id="cancel">취소하기</button>
