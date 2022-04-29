@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myguest.mapperGuestMapper">
+
+	<!-- search라는 이름으로 sql 일부 저장 -->
+	<sql id="search">
+		<where>
+			<if test="word!=null and field=='name'">
+				name like CONCAT('%',#{word},'%')
+			</if>
+			<if test="word!=null and field=='content'">
+				content like CONCAT('%',#{word},'%')
+			</if>
+		</where>
+	</sql>
+	
+	<!-- insert -->
+	<insert id="guest_insert"
+		parameterType="com.myguest.model.GuestDTO">
+		insert into guest (name, content, grade,ipaddr) values
+		(#{name},#{content},#{grade},#{ipaddr})
+		
+	</insert>
+
+	<!-- list -->
+	<select id="guest_list" resultType="com.myguest.model.GuestDTO">
+		select * from guest
+		<include refid="search"></include>
+	</select>
+
+	<!-- view -->
+	<select id="guest_view" parameterType="int"
+		resultType="com.myguest.model.GuestDTO">
+		select * from guest where num= #{num}
+	</select>
+
+	<!-- update -->
+	<update id="guest_update"
+		parameterType="com.myguest.model.GuestDTO">
+		update guest set name=#{name}, content=#{content},
+		grade=#{grade}, created=now() where num=#{num}
+	</update>
+
+
+	<!-- count -->
+	<select id="guest_count" resultType="int">
+		select count(*) from guest
+		<include refid="search"></include>
+	</select>
+
+	<!-- delete -->
+	<delete id="guest_delete" parameterType="int">
+		delete from guest where
+		num = #{num}
+	</delete>
+</mapper>
