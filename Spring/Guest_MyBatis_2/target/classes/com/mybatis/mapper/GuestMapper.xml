@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.GuestMapper">
+
+	<sql id="search">
+		<where>
+			<if test="word!= null and field == 'name'">
+				name like CONCAT ('%',#{word},'%')
+			</if>
+			<if test="word != null and field == 'content'">
+				content like CONCAT ('%', #{word}, '%')
+			</if>
+		</where>
+	</sql>
+
+
+	<!-- list -->
+	<select id="list" parameterType="java.util.Map"
+		resultType="com.mybatis.model.GuestVO">
+		select * from guest
+		<include refid="search" />
+	</select>
+
+	<!-- count -->
+	<select id="count" resultType="int">
+		select count(*) from guest
+		<include refid="search" />
+	</select>
+
+</mapper>
