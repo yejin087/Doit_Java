@@ -31,4 +31,5 @@ public class BoardService {
 	public BoardDTO view(int num) {
 		return mapper.view(num);
 	}
+
 }

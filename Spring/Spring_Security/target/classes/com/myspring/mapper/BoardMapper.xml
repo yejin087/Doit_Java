@@ -18,5 +18,9 @@
 	<select id="count" resultType="int">
 		select count(*) from board
 	</select>
+	
+	<update id="updateReplyCnt">
+		update board set replyCnt = replyCnt + #{amount} where num = #{bnum}
+	</update>
 
 </mapper>

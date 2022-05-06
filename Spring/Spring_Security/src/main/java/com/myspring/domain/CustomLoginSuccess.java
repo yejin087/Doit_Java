@@ -37,7 +37,6 @@ public class CustomLoginSuccess implements AuthenticationSuccessHandler {
 //			response.sendRedirect("/mysecurity/manager");
 //			return;
 //		}
-
 //		response.sendRedirect("/mysecurity");
 
 		response.sendRedirect("/mysecurity/board/list");
