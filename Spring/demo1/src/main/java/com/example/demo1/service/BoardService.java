@@ -16,4 +16,5 @@ public interface BoardService {
 
 	public int count();
 
+	public void update(BoardDTO board);
 }

@@ -42,4 +42,10 @@ public class BoardServiceImpl implements BoardService {
 		return bmapper.count();
 	}
 
+	@Override
+	public void update(BoardDTO board) {
+		bmapper.update(board);
+
+	}
+
 }
