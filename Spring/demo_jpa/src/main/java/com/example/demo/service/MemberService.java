@@ -1,8 +1,9 @@
 package com.example.demo.service;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.JpaMember;
 import com.example.demo.repository.MemberRepository;
@@ -19,7 +20,38 @@ public class MemberService {
 		memberRepository.save(member);
 	}
 
-	public List<JpaMember> list() {
-		return memberRepository.findAll();
+//	public List<JpaMember> list() {
+//		return memberRepository.findAll();
+//	}
+
+	public Page<JpaMember> list(Pageable pageable) {
+		return memberRepository.findAll(pageable);
 	}
+
+	public JpaMember findById(Long id) {
+		return memberRepository.findById(id).get();
+	}
+
+	public void getById(Long id) {
+		memberRepository.getById(id);
+	}
+
+	public void delete(Long id) {
+		memberRepository.deleteById(id);
+	}
+
+	@Transactional
+	public void update(JpaMember member) {
+		// 바뀌기 전 내용
+		JpaMember jpamember = memberRepository.findById(member.getId()).get();
+
+		// 바뀐 내용 set
+		jpamember.setName(member.getName());
+		jpamember.setPassword(member.getPassword());
+		jpamember.setAddr(member.getAddr());
+		jpamember.setEmail(member.getEmail());
+		jpamember.setMemo(member.getMemo());
+
+	}
+
 }
