@@ -16,7 +16,7 @@
 			<c:forEach items="${board_list.content}" var="board" varStatus="status">
 				<tr>
 					<td>${status.index}</td>
-					<td><a href="view/${board.num}" name="num"> ${board.title}</a></td>
+					<td><a href="/board/view/${board.num}" name="num"> ${board.title}</a></td>
 
 					<td>${board.writer}</td>
 
@@ -35,15 +35,12 @@
 		<ul class="pagination">
 			<c:if test="${board_list.first==false}">
 				<li class="page-item">
-
 					<a href="?page=${board_list.number-1}">prev</a>
-
 				</li>
 			</c:if>
+			<li class="page-item">[${board_list.number +1}]</li>
 			<c:if test="${board_list.last==false}">
-
 				<li class="page-item">
-
 					<a href="?page=${board_list.number+1}">next</a>
 
 				</li>

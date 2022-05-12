@@ -1,5 +1,7 @@
 package com.example.demo4.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,4 +31,27 @@ public class BoardService {
 	public Long count() {
 		return boardRepository.count();
 	}
+
+	@Transactional
+	public Board view(Long num) {
+		Board board = boardRepository.findById(num).get();
+		board.setHitcount(board.getHitcount() + 1);
+		return board;
+	}
+
+	@Transactional
+	public void delete(Long num) {
+//		boardRepository.deleteById(num);
+		boardRepository.deleteByNum(num); // 쿼리 메서드 사용
+	}
+
+	@Transactional
+	public void update(Board board) {
+		Board context_board = boardRepository.findById(board.getNum()).get();
+		context_board.setContent(board.getContent());
+		context_board.setTitle(board.getTitle());
+		context_board.setRegdate(new Date());
+
+	}
+
 }

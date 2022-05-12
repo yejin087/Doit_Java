@@ -27,13 +27,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.authorizeRequests().antMatchers("/user/*").authenticated().anyRequest().permitAll().and().formLogin()
-				.loginPage("/login")
-//			.loginProcessingUrl("/loginPro")
-//			.failureForwardUrl(null) // 실패시 이동 url
-
-				.defaultSuccessUrl("/").failureHandler(userFailHandler) // 실패시 이동 Class
-				.and().logout().logoutUrl("/logout").logoutSuccessUrl("/").invalidateHttpSession(true);
+		http.authorizeRequests()
+		.antMatchers("/user/*")
+		.authenticated()
+		.anyRequest()
+		.permitAll()
+		.and()
+		.formLogin()
+		.loginPage("/login")
+//		.loginProcessingUrl("/loginPro")
+//		.failureForwardUrl(null) // 실패시 이동 url
+		.defaultSuccessUrl("/")
+//		.failureHandler(userFailHandler) // 실패시 이동 Class
+		.failureUrl("/login/error")
+		.and()
+		.logout()
+		.logoutUrl("/logout")
+		.logoutSuccessUrl("/")
+		.invalidateHttpSession(true);
 
 	}
 }

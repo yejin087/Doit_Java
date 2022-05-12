@@ -18,6 +18,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,6 +40,7 @@ public class Board {
 	private String writer;
 	private String content;
 
+//	@Generated(GenerationTime.ALWAYS)
 	@CreationTimestamp // 날자 자동 생성 주입
 	@Temporal(TemporalType.TIMESTAMP) // 날짜형
 	private Date regdate;
@@ -45,10 +48,11 @@ public class Board {
 	private Long replycnt;
 
 	@OneToMany(mappedBy = "board")
+	@JsonIgnoreProperties("board")
 	private List<Comment> comments;
 
+	@ManyToOne(fetch = FetchType.EAGER) // default eager
 	@JoinColumn(name = "user_id")
-	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 
 	@PrePersist
