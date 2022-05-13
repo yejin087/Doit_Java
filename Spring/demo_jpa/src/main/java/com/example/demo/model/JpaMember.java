@@ -6,19 +6,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
 @Entity // Class이름으로 Table이 만들어진다
+@Getter
+@Setter
 public class JpaMember {
-	@Id // key 설정.
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment 기능
-	private Long id;
-	private String name;
-	private String password;
-	private String email;
-	@Column(name = "address")
-	private String addr;
-	private String memo;
+    @Id // key 설정.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment 기능
+    private Long id;
+    private String name;
+    private String password;
+    private String email;
+    @Column(name = "address")
+    private String addr;
+    private String memo;
 
 }
