@@ -22,10 +22,7 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    // public List<JpaMember> list() {
-    // return memberRepository.findAll();
-    // }
-
+    
     public Page<JpaMember> list(Pageable pageable) {
         return memberRepository.findAll(pageable);
     }

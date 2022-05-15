@@ -9,21 +9,21 @@ import com.example.demo4.repository.UserRepository;
 
 @Service
 public class UserService {
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	@Autowired
-	private BCryptPasswordEncoder bcryptPasswordEncoder;
+    @Autowired
+    private BCryptPasswordEncoder bcryptPasswordEncoder;
 
-	public void reigster(User user) {
-		String rawPassword = user.getPassword();
-		String encPassword = bcryptPasswordEncoder.encode(rawPassword);
-		user.setPassword(encPassword);
-		user.setRole("ROLE_USER");
-		userRepository.save(user);
-	}
+    public void reigster(User user) {
+        String rawPassword = user.getPassword();
+        String encPassword = bcryptPasswordEncoder.encode(rawPassword);
+        user.setPassword(encPassword);
+        user.setRole("ROLE_USER");
+        userRepository.save(user);
+    }
 
-	public User findByUsername(String username) {
-		return userRepository.findByUsername(username);
-	}
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }
