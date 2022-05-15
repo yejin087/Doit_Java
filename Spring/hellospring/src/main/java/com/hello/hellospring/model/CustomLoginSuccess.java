@@ -15,16 +15,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomLoginSuccess implements AuthenticationSuccessHandler {
 
-	@Override
-	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException, ServletException {
-		List<String> roleNames = new ArrayList<>();
-		authentication.getAuthorities().forEach(authority -> roleNames.add(authority.getAuthority()));
+    @Override
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+            Authentication authentication) throws IOException, ServletException {
+        List<String> roleNames = new ArrayList<>();
+        authentication.getAuthorities().forEach(authority -> roleNames.add(authority.getAuthority()));
 
-		System.out.println("roleNames : " + roleNames);
+        System.out.println("roleNames : " + roleNames);
 
-		response.sendRedirect("/");
+        response.sendRedirect("/");
 
-	}
+    }
 
 }
