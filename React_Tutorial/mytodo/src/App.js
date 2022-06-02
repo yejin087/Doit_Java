@@ -20,21 +20,6 @@ class App extends Component {
     });
   };
 
-  handelToggle = (id) => {
-    const { todos } = this.state;
-    const index = todos.findIndex((todo) => todo.id === id);
-    const selected = todos[index];
-    const nextTodos = [...todos];
-    nextTodos[index] = {
-      ...selected,
-      checked: !selected.checked,
-    };
-
-    this.setState({
-      todos: nextTodos,
-    });
-  };
-
   handleCreate = () => {
     const { input, todos } = this.state;
 
@@ -50,8 +35,32 @@ class App extends Component {
     }
   };
 
+  handelToggle = (id) => {
+    // state에서 todos를 받아온다
+    const { todos } = this.state;
+
+    // 선택된 todo의 idx와 내용
+    const index = todos.findIndex((todo) => todo.id === id);
+    const selected = todos[index];
+
+    // 다음에 변경될 내용으로 표시될 todos
+    const nextTodos = [...todos];
+    // 선택된 idx번 nextTodos의 selectd= false
+    nextTodos[index] = {
+      ...selected,
+      checked: !selected.checked,
+    };
+
+    // 변경된 내용으로 할당
+    this.setState({
+      todos: nextTodos,
+    });
+  };
+
   handelRemove = (id) => {
     const { todos } = this.state;
+
+    //filter
     const nextTodos = todos.filter((todo) => todo.id !== id);
 
     this.setState({
