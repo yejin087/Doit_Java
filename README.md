@@ -1,2 +1,2 @@
-# Doit_Java
-Java language 연습 
+# KDT 수업용 코드
+
