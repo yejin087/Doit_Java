@@ -31,17 +31,6 @@ public class HomeController {
 		return "success";
 	}
 
-	@GetMapping("/listAll")
-	public List<Todo> listAll() {
-		return todoService.findAll();
-	}
-//
-//	@GetMapping("/listSearch")
-//	public Page<Todo> listSearch(@RequestParam(required = false, defaultValue = "") String searchTitle) {
-//
-//		return todoService.listSearch(searchTitle);
-//	}
-
 	@DeleteMapping("/delete/{num}")
 	public String delete(@PathVariable Long num) {
 		todoService.deleteById(num);
@@ -63,11 +52,16 @@ public class HomeController {
 		todoService.update(todo);
 	}
 
-	@GetMapping({ "/search/{title}", "/search" })
+	@GetMapping({ "/list/{title}", "/list" })
 	public List<Todo> search(@PathVariable(required = false) String title) {
 		if (title == null)
-			return todoService.findAll();
+			return todoService.findAllOrderByChecked();
 		else
 			return todoService.search(title);
+	}
+
+	@PutMapping("/checked/{num}")
+	public void checked(@PathVariable Long num) {
+		todoService.checked(num);
 	}
 }
