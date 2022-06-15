@@ -7,6 +7,9 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import User from "./components/User";
+import Manager from "./components/Manager";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
+          <Route path="/user" component={User} />
+          <Route path="/manager" component={Manager} />
+          <Route path="/admin" component={Admin} />
         </Switch>
       </Container>
     </BrowserRouter>

@@ -18,7 +18,7 @@ const login = (username, password) => {
 };
 
 const getCurrentUser = () => {
-  console.log(">>", JSON.parse(localStorage.getItem("user")));
+  //   console.log(">>", JSON.parse(localStorage.getItem("user")));
   return JSON.parse(localStorage.getItem("user"));
 };
 const logout = () => {

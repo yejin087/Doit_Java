@@ -38,6 +38,21 @@ const Navigation = () => {
           Home
         </Nav.Link>
       </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="manager" href="/manager">
+          Manager
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="user" href="/user">
+          User
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="admin" href="/admin">
+          Admin
+        </Nav.Link>
+      </Nav.Item>
 
       {currentUser ? (
         <>
