@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <Button
+        android:id="@+id/btnText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="글자 나타내기"
+        />
+
+    <Button
+        android:id="@+id/btnUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="URL 이동하기"
+        />
+
+    <RadioGroup
+        android:id="@+id/radio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <RadioButton
+            android:id="@+id/rdoQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Q"/>
+        <RadioButton
+            android:id="@+id/rdoR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R"/>
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/r"
+        />
+
+</LinearLayout>
