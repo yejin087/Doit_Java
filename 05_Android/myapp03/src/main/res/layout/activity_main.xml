@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              xmlns:app = "http://schemas.android.com/apk/res-auto"
+              xmlns:tools = "http://schemas.android.com/tools"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+              android:orientation = "vertical"
+              tools:context = ".MainActivity">
+    <TextView
+	    android:layout_width = "match_parent"
+	    android:layout_height = "wrap_content"
+	    android:autoLink = "web|email|phone"
+	    android:text = "Hello World! example@example.com http://localhost 010-2222-2222" />
+	<TextView
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "16dp"
+		android:ellipsize = "end"
+		android:maxLines = "3"
+		android:text = "@string/long_text" />
+	
+	<ImageView
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "16dp"
+		android:adjustViewBounds = "true"
+		android:maxWidth = "100dp"
+		android:maxHeight = "100dp"
+		android:src = "@drawable/ic_launcher_background" />
+	
+	<EditText
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "16dp"
+		android:hint = "전화번호 입력"
+		android:inputType = "phone" />
+	
+	<CheckBox
+		android:id = "@+id/chk"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_margin = "16dp"
+		android:text = "is unchecked" />
+	
+	<Button
+		android:id = "@+id/btn1"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:text = "Btn1" />
+	
+	<Button
+		android:id = "@+id/btn2"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:text = "Btn2" />
+		
+	
+
+  </LinearLayout>

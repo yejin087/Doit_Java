@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:app = "http://schemas.android.com/apk/res-auto"
+	xmlns:tools = "http://schemas.android.com/tools"
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+	android:orientation = "vertical"
+	tools:context = ".webview">
+
+
+	<LinearLayout
+		android:id = "@+id/line1"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:orientation = "horizontal">
+		<EditText
+			android:id = "@+id/editurl"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:layout_weight = "1"
+			android:hint = "URL을 입력하세요"
+			android:singleLine = "true" />
+		<Button
+			android:id = "@+id/btnGo"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "이동" />
+		<Button
+			android:id = "@+id/btnBack"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "이전" />
+
+	</LinearLayout>
+
+	<WebView
+		android:id = "@+id/webview1"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:clickable = "true">
+
+	</WebView>
+
+	</LinearLayout>
