@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              xmlns:app = "http://schemas.android.com/apk/res-auto"
+              xmlns:tools = "http://schemas.android.com/tools"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+              android:orientation = "vertical"
+              tools:context = ".intent_stu_input">
+  
+  <TableLayout
+	  android:layout_width = "match_parent"
+	  android:layout_height = "wrap_content">
+    
+    <TableRow>
+      <TextView
+	      android:layout_width = "wrap_content"
+	      android:layout_height = "wrap_content"
+	      android:text = "이름" />
+      <EditText
+	      android:id = "@+id/edtName"
+	      android:layout_width = "wrap_content"
+	      android:layout_height = "wrap_content"
+	      android:hint = "이름" />
+    </TableRow>
+    <TableRow>
+      <TextView
+	      android:layout_width = "wrap_content"
+	      android:layout_height = "wrap_content"
+	      android:text = "나이" />
+      <EditText
+	      android:id = "@+id/edtAge"
+	      android:layout_width = "wrap_content"
+	      android:layout_height = "wrap_content"
+	      android:hint = "나이" />
+    </TableRow>
+    <TableRow>
+      <TextView
+	      android:layout_width = "wrap_content"
+	      android:layout_height = "wrap_content"
+	      android:text = "연락처" />
+      <EditText
+	      android:id = "@+id/edtTel"
+	      android:layout_width = "wrap_content"
+	      android:layout_height = "wrap_content"
+	      android:hint = "연락처"
+	      android:inputType = "phone" />
+    </TableRow>
+  </TableLayout>
+  
+  <Button
+	  android:id = "@+id/btnGoMain_Input"
+	  android:layout_width = "match_parent"
+	  android:layout_height = "wrap_content"
+	  android:text = "go main" />
+  </LinearLayout>
