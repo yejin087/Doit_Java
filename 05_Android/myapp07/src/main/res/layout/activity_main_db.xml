@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              xmlns:app = "http://schemas.android.com/apk/res-auto"
+              xmlns:tools = "http://schemas.android.com/tools"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+              android:orientation = "vertical"
+              tools:context = ".MainActivity_db">
+
+  <LinearLayout
+	  android:layout_width = "match_parent"
+	  android:layout_height = "wrap_content"
+	  android:orientation = "horizontal">
+    <EditText
+	    android:id = "@+id/edtDBName"
+	    android:layout_width = "wrap_content"
+	    android:layout_height = "wrap_content"
+	    android:layout_weight = "1"
+	    android:hint = "DB Name" />
+    <Button
+	    android:id = "@+id/btnDBName"
+	    android:layout_width = "wrap_content"
+	    android:layout_height = "wrap_content"
+	    android:layout_weight = "1"
+	    android:text = "create DB" />
+  </LinearLayout>
+  
+  <LinearLayout
+	  android:layout_width = "match_parent"
+	  android:layout_height = "wrap_content"
+	  android:orientation = "horizontal">
+    <EditText
+	    android:id = "@+id/edtTName"
+	    android:layout_width = "wrap_content"
+	    android:layout_height = "wrap_content"
+	    android:layout_weight = "1"
+	    android:hint = "Table Name" />
+    <Button
+	    android:id = "@+id/btnTCreate"
+	    android:layout_width = "wrap_content"
+	    android:layout_height = "wrap_content"
+	    android:layout_weight = "1"
+	    android:text = "create Table" />
+  </LinearLayout>
+  
+  <LinearLayout
+	  android:layout_width = "match_parent"
+	  android:layout_height = "wrap_content"
+	  android:orientation = "horizontal">
+   <Button
+	   android:id = "@+id/btnInsert"
+	   android:layout_width = "wrap_content"
+	   android:layout_height = "wrap_content"
+	   android:layout_weight = "1"
+	   android:text = "enter Data" />
+    <Button
+	    android:id = "@+id/btnFindData"
+	    android:layout_width = "wrap_content"
+	    android:layout_height = "wrap_content"
+	    android:layout_weight = "1"
+	    android:text = "find Data" />
+	  <Button
+		  android:id = "@+id/btnSelect"
+		  android:layout_width = "wrap_content"
+		  android:layout_height = "wrap_content"
+		  android:layout_weight = "1"
+		  android:text = "list Data" />
+  </LinearLayout>
+  
+  <ScrollView
+	  android:layout_width = "match_parent"
+	  android:layout_height = "match_parent">
+    <LinearLayout
+	    android:layout_width = "match_parent"
+	    android:layout_height = "wrap_content"
+	    android:orientation = "vertical">
+      <TextView
+	      android:id = "@+id/textview"
+	      android:layout_width = "match_parent"
+	      android:layout_height = "wrap_content" />
+    </LinearLayout>
+  </ScrollView>
+  </LinearLayout>
