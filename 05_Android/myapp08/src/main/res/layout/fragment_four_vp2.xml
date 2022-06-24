@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+             xmlns:tools = "http://schemas.android.com/tools"
+             android:layout_width = "match_parent"
+             android:layout_height = "match_parent"
+             tools:context = ".four_vp2">
+
+   <RelativeLayout
+	   android:layout_width = "match_parent"
+	   android:layout_height = "@dimen/frameSize"
+	   android:layout_margin = "@dimen/pageMarginAndOffset"
+	   android:layout_marginRight = "@dimen/pageMarginAndOffset">
+		<ImageView
+			android:layout_width = "match_parent"
+			android:layout_height = "match_parent"
+			android:background = "#ff0000"
+			android:contentDescription = "@string/app_name" />
+		<TextView
+			android:id = "@+id/tvName4"
+			android:layout_width = "match_parent"
+			android:layout_height = "wrap_content"
+			android:layout_centerInParent = "true"
+			android:text = "Page 4"
+			android:textColor = "@color/black"
+			android:textStyle = "bold" />
+		
+	</RelativeLayout>
+	
+
+</FrameLayout>
