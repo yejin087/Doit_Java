@@ -34,8 +34,7 @@ public class MainActivity_retrofit extends AppCompatActivity {
 		setContentView(R.layout.activity_main_retrofit);
 		
 		recyclerView = findViewById(R.id.recycler);
-		movieAdapter = new MovieAdapter(movies);
-		recyclerView.setAdapter(movieAdapter);
+		
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity_retrofit.this, RecyclerView.VERTICAL, false);
 		recyclerView.setLayoutManager(linearLayoutManager);
 		
@@ -43,6 +42,9 @@ public class MainActivity_retrofit extends AppCompatActivity {
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
+				movieAdapter = new MovieAdapter(movies);
+				recyclerView.setAdapter(movieAdapter);
+				
 				apiInterface = MovieClient.getClient().create(MovieInter.class);
 				Call<List<Movie>> call = apiInterface.doGetMovies();
 				call.enqueue(new Callback<List<Movie>>() {
@@ -68,14 +70,13 @@ public class MainActivity_retrofit extends AppCompatActivity {
 		});
 		
 		btn2 = findViewById(R.id.btn2);
-		postAdapter = new PostAdapter(posts);
-		recyclerView.setAdapter(postAdapter);
-//		recyclerView.setLayoutManager(linearLayoutManager);
 		
 		btn2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				
+				postAdapter = new PostAdapter(posts);
+				recyclerView.setAdapter(postAdapter);
 				
 				apiInterface = MovieClient.getClient().create(MovieInter.class);
 				Call<List<Post>> call = apiInterface.doGetPosts();

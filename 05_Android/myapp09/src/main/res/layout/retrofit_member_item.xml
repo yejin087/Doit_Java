@@ -3,21 +3,25 @@
               android:layout_width = "match_parent"
               android:layout_height = "wrap_content"
               android:orientation = "horizontal">
-	
 	<TextView
 		android:id = "@+id/tvId"
 		android:layout_width = "wrap_content"
 		android:layout_height = "wrap_content"
 		android:layout_margin = "20dp" />
+	 
 	<TextView
 		android:id = "@+id/tvName"
 		android:layout_width = "wrap_content"
 		android:layout_height = "wrap_content"
 		android:layout_margin = "20dp" />
+	 
+	
 	<TextView
-		android:id = "@+id/tvTel"
+		android:id = "@+id/tvPhone"
 		android:layout_width = "wrap_content"
 		android:layout_height = "wrap_content"
 		android:layout_margin = "20dp" />
+
+ 
 
 </LinearLayout>

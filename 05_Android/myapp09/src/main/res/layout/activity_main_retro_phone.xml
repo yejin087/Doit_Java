@@ -14,29 +14,30 @@
 		android:layout_height = "wrap_content" />
 	<Button
 		android:id = "@+id/btnInsert"
-		android:layout_width = "wrap_content"
+		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content"
 		android:text = "button Insert" />
 	
 	<Button
 		android:id = "@+id/btnList"
-		android:layout_width = "wrap_content"
+		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content"
 		android:text = "button List" />
 	
 	<Button
 		android:id = "@+id/btnDelete"
-		android:layout_width = "wrap_content"
+		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content"
 		android:text = "button delete" />
 	
 	<Button
 		android:id = "@+id/btnUpdate"
-		android:layout_width = "wrap_content"
+		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content"
 		android:text = "button Update" />
-	<!--	<androidx.recyclerview.widget.RecyclerView-->
-	<!--		android:id = "@+id/recycler"-->
-	<!--		android:layout_width = "match_parent"-->
-	<!--		android:layout_height = "wrap_content" />-->
+	
+	<androidx.recyclerview.widget.RecyclerView
+		android:id = "@+id/recycler"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content" />
 </LinearLayout>
