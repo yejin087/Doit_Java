@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  {% csrf_token%}
+
+  <div class="container m-5">
+    <h2>LIST({{boardList.count}})</h2>
+    <table class="table m-5">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>작성일</th>
+          <th>조회수</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>첨부파일</th>
+          <th>다운로드</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for board in posts %}
+          <tr>
+            <td>{{ board.idx }}</td>
+            <td>
+              <a href="/detail/{{board.idx}}">{{ board.title }}</a>
+            </td>
+            <td>{{ board.writer }}</td>
+            <td>{{ board.post_date | date:"Y-m-d" }}</td>
+            <td>{{ board.hit }}</td>
+            <td>{{ board.filename }}</td>
+            <td>
+              {% if board.filesize > 0 %}
+                <span class="_imgs" data-url="/download_count?idx={{board.idx}}">
+                  <img src="{% static 'images/images.png' %}" alt="file" width="20p"/>
+                </span>
+              {% endif %}
+            </td>
+            <td>{{ board.down }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% if posts.has_previous %}
+      <a href="?page=1">
+        first
+      </a>
+      <a href="?page={{posts.previous_page_number}}">이전으로</a>
+    {% endif %}
+    <span>{{posts.number}}</span>
+    {% if posts.has_next %}
+      <a href="?page={{posts.next_page_number}}">다음으로</a>
+      <a href="?page={{posts.paginator.num_pages}}">맨뒤로</a>
+    {% endif %}
+  </div>
+{% endblock %}
+{% block script %}
+  <script>
+    $("._imgs").on("click", function () {
+      _imgs = $(this);
+      $.ajax({
+        url: $(this).data("url"),
+        type: "GET",
+        success: function (data) {
+          alert(data.count);
+          // _imgs.parent().parent().find(".downCnt").text(data.count);
+          // location.href = "/download?idx=" + data.id;
+        }
+      });
+    });
+  </script>
+
+  {% endblock%}
