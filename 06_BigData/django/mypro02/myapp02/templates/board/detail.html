@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% load static %} {% block content %} {% csrf_token%}
+
+<div class="container m-5">
+    <h2>상세보기</h2>
+    <table class="table">
+      
+            <tr>
+                <th>번호</th>
+                <td>{{ dto.idx }}</td>
+                <th>작성일</th>
+                <td>{{ dto.post_date }}</td>
+                <th>조회수</th>
+                <td>{{ dto.hit }}</td>
+            </tr>
+              
+            <tr>
+                <th>제목</th>
+                <td>{{ dto.title }}</td>
+                <th >작성자</th>
+                <td>{{ dto.writer }}</td>
+            </tr>
+
+            <tr>
+                <th>내용</th>
+                <td>{{ dto.content }}</td>
+            </tr>
+
+            <tr>
+                <th>첨부파일</th>
+                <td>{{ dto.filename }}</td>
+            </tr>
+
+            <tr>
+                <th>다운로드</th>
+                <td>{{ dto.down }}</td>
+            </tr>
+    
+    </table>
+
+    <button
+    type="button"
+    class="btn btn-info btn-sm update"
+    data-uri="/update_form/{{dto.idx}}"
+    >
+    수정
+    </button>
+
+    <button
+    type="button"
+    class="btn btn-danger btn-sm delete"
+    data-uri="/delete/{{dto.idx}}"
+    >
+    삭제
+    </button>
+
+    <div class='container mt-5'>
+
+        <h4>Comment</h4>
+        <form action="/comment_insert/" method="post">
+        <input type="hidden" name="idx" value="{{dto.idx}}" />
+        <textarea
+            name="content"
+            rows="5"
+            cols="50"
+            placeholder="comment insert"
+        ></textarea>
+        <input type="submit" value="전송" />
+        </form>
+
+        <div class="container">
+           Comment LIST({{dto.comment_set.count}})
+           <br>
+           {% if dto.comment_set.count > 0 %}
+           {% for comment in dto.comment_set.all %}
+           {{comment.content}} - {{comment.writer}} - {{comment.post_date | date:"Y-m-d"}}
+           <br>
+           {% endfor%}
+           
+           {% endif %}
+        </div>
+    </div>
+
+
+ 
+</div>
+  {% endblock %} {%block script%}
+
+  <script>
+    $(".delete").on("click", function () {
+      if (confirm("delete ?")) {
+        location.href = $(this).data("uri");
+      }
+    });
+
+    $(".update").on("click", function () {
+      if (confirm("update ?")) {
+        location.href = $(this).data("uri");
+      }
+    });
+  </script>
+  {%endblock %}
+</div>

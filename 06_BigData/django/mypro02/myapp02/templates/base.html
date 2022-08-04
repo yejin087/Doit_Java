@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <script src="{%static 'css/bootstrap.min.js' %}"></script>
+    <script src="{%static 'jquery-3.6.0.min.js' %}"></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="/">Logo</a>
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/write_form/">write</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/list_page/">list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/melon/">melon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/wordcloud/">wordcloud</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/weather/">weather</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/movie/">movie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/movie_chart/">movie_chart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/water/">water</a>
+        </li>
+
+        {%if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/logout/">({{user.username}})logout</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/signup/">sign up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/loginform/">login</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+    {% block script %}{% endblock %}
+  </body>
+
+</html>

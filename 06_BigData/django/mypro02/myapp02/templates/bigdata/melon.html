@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container m-5">
+    <h2>Melon</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Title</th>
+          <th>Singer</th>
+          <th>Album</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in data %}
+          <tr>
+            <td>{{r.rank}}</td>
+            <td>{{r.title}}</td>
+            <td>{{r.singer}}</td>
+            <td>{{r.ablum}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endblock%}

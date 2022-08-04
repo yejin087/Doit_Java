@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  {% csrf_token%}
+
+  <div class="container m-5">
+    <h2>LIST</h2>
+    <table class="table m-5">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>검사지점</th>
+          <th>구군</th>
+          <th>동</th>
+          <th>PH</th>
+          <th>탁도</th>
+          <th>잔류염소</th>
+          <th>전기전도도</th>
+          <th>수온</th>
+          <th>수질상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i, w in posts %}
+          <tr>
+            <td>{{ i }}</td>
+            <td>{{ w.orgAreaNm }}</td>
+            <td>{{ w.siguNm }}</td>
+            <td>{{ w.dongNm }}</td>
+            <td>{{ w.ph }}</td>
+            <td>{{ w.td }}</td>
+            <td>{{ w.jy }}</td>
+            <td>{{ w.ec }}</td>
+            <td>{{ w.tp }}</td>
+            <td>{{ w.sopCheck }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% if posts.has_previous %}
+      <a href="?page=1">
+        first
+      </a>
+      <a href="?page={{posts.previous_page_number}}">이전으로</a>
+    {% endif %}
+    <span>{{posts.number}}</span>
+    {% if posts.has_next %}
+      <a href="?page={{posts.next_page_number}}">다음으로</a>
+      <a href="?page={{posts.paginator.num_pages}}">맨뒤로</a>
+    {% endif %}
+
+  </div>
+{% endblock %}
